@@ -1,4 +1,4 @@
-# Swiggy Clone UI (React + Parcel)
+# MealFlow UI (React + Parcel)
 
 ![React](https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white)
 ![Parcel](https://img.shields.io/badge/Parcel-2-DAA520?style=for-the-badge&logo=parcel&logoColor=black)
@@ -6,7 +6,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Learning%20Project-2563EB?style=for-the-badge)
 
-A frontend learning project that recreates key Swiggy-style flows: home discovery, restaurant listing, and menu browsing.
+A frontend learning project for a food delivery interface with home discovery, restaurant listing, and menu browsing.
 
 ## Live Preview
 
@@ -62,7 +62,7 @@ Routes are configured in `src/app.jsx`.
 ## Project Structure
 
 ```text
-swiggy/
+mealflow/
 	index.html
 	package.json
 	Readme.md
@@ -163,15 +163,13 @@ This project is ideal for practicing:
 
 - Name: Manish
 - Role: Frontend Learner
-- Project: Swiggy Clone UI
+- Project: MealFlow UI
 
 ## Connect
 
 - GitHub: add your GitHub profile link
 - LinkedIn: add your LinkedIn profile link
 - Portfolio: add your portfolio link
-
-
 
 Start: index.html — confirm app mount and scripts. See index.html
 App entry: app.jsx — app structure, routing, providers. See app.jsx

@@ -1,12 +1,29 @@
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+// ===== LOGIN PAGE COMPONENT =====
+// Users enter their email and password to log in
+// Checks if email and password match a registered user
+// If correct, saves user to context and navigates to home
 
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom"; // Navigation
+import { useState } from "react"; // Manage form state
+import { useAuth } from "../context/AuthContext"; // Login function
+
+// ===== LOGIN PAGE FUNCTION =====
 export default function Login() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  // ===== NAVIGATION HOOKS =====
+  const navigate = useNavigate(); // Go to other pages
+  const location = useLocation(); // Get URL info
+
+  // ===== AUTH HOOK =====
+  // login = function to save user
+  // isAuthenticated = is user already logged in?
   const { login, isAuthenticated } = useAuth();
+
+  // ===== STATE: Form Inputs =====
+  // Stores email and password user types in
   const [form, setForm] = useState({ email: "", password: "" });
+
+  // ===== STATE: Error Message =====
+  // Shows "Invalid email or password" if login fails
   const [error, setError] = useState("");
 
   const redirectPath = location.state?.from?.pathname || "/";

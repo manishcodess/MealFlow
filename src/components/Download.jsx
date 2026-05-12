@@ -1,33 +1,38 @@
-export default function Swiggy() {
+// ===== DOWNLOAD COMPONENT =====
+// Shows a neutral mobile-experience call to action
+
+import { Link } from "react-router-dom";
+
+export default function Download() {
   return (
-    <div className="p-4 bg-orange-50 text-center">
-      <p className="mb-4 text-base font-semibold sm:text-lg">
-        For better experience, download the Swiggy app now
-      </p>
+    <section id="download" className="px-4 pb-10 pt-2">
+      <div className="mx-auto w-full max-w-5xl rounded-3xl bg-slate-100 px-6 py-8 text-center shadow-lg shadow-slate-200/60 ring-1 ring-slate-200 sm:px-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
+          Mobile experience
+        </p>
+        <p className="mt-3 text-xl font-bold text-slate-900 sm:text-2xl">
+          Use the app-like view on any device.
+        </p>
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
+          Fast search, saved login, and route-based browsing keep the project
+          feeling polished without tying it to a specific brand.
+        </p>
 
-      <div className="flex flex-wrap justify-center gap-4">
-        <a
-          href="https://play.google.com/store/apps/details?id=in.swiggy.android"
-          target="_blank"
-        >
-          <img
-            className="w-36 sm:w-40"
-            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-            alt="Get it on Google Play"
-          />
-        </a>
-
-        <a
-          href="https://apps.apple.com/in/app/swiggy-food-order-delivery/id989540920"
-          target="_blank"
-        >
-          <img
-            className="w-36 sm:w-40"
-            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-            alt="Download on the App Store"
-          />
-        </a>
+        <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+          <Link
+            className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            to="/restaurant"
+          >
+            Browse restaurants
+          </Link>
+          <a
+            className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+            href="#search2"
+          >
+            Jump to search
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

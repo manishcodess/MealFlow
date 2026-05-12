@@ -1,12 +1,24 @@
+/* ===== GLOBAL STYLES FOR THE ENTIRE APP ===== */
+
+/* Import Tailwind CSS framework - this gives us classes like "flex", "mt-4", etc. */
 @import "tailwindcss";
 
+/* ===== CSS VARIABLES (Custom Colors) ===== */
+/* These are color codes used throughout the app */
 :root {
-  --accent: #ff5709;
-  --accent-dark: #ff5900;
-  --muted: #f3f4f6;
+  /* Accent color for buttons, headers, and highlights */
+  --accent: #0f766e;
+
+  /* Darker accent for hover effects */
+  --accent-dark: #115e59;
+
+  /* Light gray for backgrounds, borders, muted text */
+  --muted: #f5f7fb;
 }
 
+/* ===== BODY STYLING (Applies to entire page) ===== */
 body {
+  /* Font family: Use Inter font, or fallback to system fonts if not available */
   font-family:
     Inter,
     ui-sans-serif,
@@ -16,10 +28,18 @@ body {
     Roboto,
     "Helvetica Neue",
     Arial;
+
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  color: #0f172a;
+  min-height: 100vh;
 }
 
+/* ===== CONTAINER CLASS (Used to center content) ===== */
 .container {
+  /* Max width: Content won't be wider than 1200px on large screens */
   max-width: 1200px;
+
+  /* Center the container horizontally (auto margins on left & right) */
   margin-left: auto;
   margin-right: auto;
 }

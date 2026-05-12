@@ -1,33 +1,54 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+// ===== SIGNUP PAGE COMPONENT =====
+// New users create an account here
+// Stores user info (name, email, password) in browser storage
 
+import { Link, Navigate, useNavigate } from "react-router-dom"; // Navigation
+import { useState } from "react"; // Manage form state
+import { useAuth } from "../context/AuthContext"; // Login function
+
+// ===== SIGNUP PAGE FUNCTION =====
 export default function Signup() {
-  const navigate = useNavigate();
-  const { login, isAuthenticated } = useAuth();
+  // ===== NAVIGATION HOOK =====
+  const navigate = useNavigate(); // Go to other pages
+
+  // ===== AUTH HOOK =====
+  const { login, isAuthenticated } = useAuth(); // Save user after signup
+
+  // ===== STATE: Form Inputs =====
+  // Stores name, email, password, confirmPassword
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
+  // ===== STATE: Error Message =====
   const [error, setError] = useState("");
 
+  // ===== HANDLE INPUT CHANGES =====
+  // Updates form state when user types
   const onChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  // ===== HANDLE FORM SUBMIT =====
+  // Called when user clicks "Sign Up" button
   const onSubmit = (e) => {
     e.preventDefault();
     setError("");
 
+    // ===== VALIDATION: Check if passwords match =====
     if (form.password !== form.confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
 
+    // ===== GET ALL REGISTERED USERS FROM STORAGE =====
     const users = JSON.parse(localStorage.getItem("swiggyUsers") || "[]");
+
+    // ===== CHECK IF EMAIL ALREADY EXISTS =====
     const alreadyExists = users.some((user) => user.email === form.email);
 
     if (alreadyExists) {
@@ -35,17 +56,26 @@ export default function Signup() {
       return;
     }
 
+    // ===== CREATE NEW USER OBJECT =====
     const newUser = {
       name: form.name,
       email: form.email,
       password: form.password,
     };
 
+    // ===== SAVE NEW USER TO STORAGE =====
+    // Add new user to existing users list
     localStorage.setItem("swiggyUsers", JSON.stringify([...users, newUser]));
+
+    // ===== LOGIN THE NEW USER =====
+    // Automatically log them in after signup
     login({ name: newUser.name, email: newUser.email });
+
+    // ===== REDIRECT TO HOME =====
     navigate("/", { replace: true });
   };
 
+  // ===== IF USER ALREADY LOGGED IN, REDIRECT TO HOME =====
   if (isAuthenticated) {
     return <Navigate to="/" replace />;
   }
