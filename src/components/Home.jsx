@@ -7,7 +7,6 @@ import Foodoptions from "./Foodoptions"; // "Order Our Best Food Options" sectio
 import Groceryoptions from "./Groceryoptions"; // "Shop groceries on instamart" section
 import DineOption from "./DineOption"; // "Discover best restaurants on Dineout" section
 import Footer from "./Footer"; // Bottom section with a general app CTA
-import Download from "./Download"; // App store download badges
 
 // ===== HOME PAGE FUNCTION =====
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
       <Groceryoptions /> {/* Grocery essentials carousel */}
       <DineOption /> {/* Featured places carousel */}
       <Footer /> {/* App experience call-to-action */}
-      <Download /> {/* Mobile app promo block */}
     </>
   );
 }

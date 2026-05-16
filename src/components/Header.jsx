@@ -49,10 +49,10 @@ export default function Header() {
   return (
     <>
       {/* ===== TOP NAVBAR ===== */}
-      <header className="bg-slate-950 py-3 text-white sm:py-4">
+      <header className="bg-white py-3 text-rose-900 sm:py-4 shadow-sm">
         <div className="container mx-auto flex flex-col gap-3 px-4 md:flex-row md:items-center md:justify-between">
           <Link className="flex items-center gap-3 py-2" to="/">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400 text-lg font-black text-slate-950">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-100 text-lg font-black text-rose-700">
               MF
             </span>
             <span className="text-lg font-bold tracking-wide sm:text-xl">
@@ -60,61 +60,54 @@ export default function Header() {
             </span>
           </Link>
           {/* ===== NAVBAR LINKS =====  */}
-          <div className="flex w-full flex-wrap items-center justify-center gap-2 text-sm font-semibold text-slate-200 sm:gap-3 sm:text-base md:w-auto md:justify-end">
-            <Link className="p-2 transition hover:text-white" to="/restaurant">
+          <div className="flex w-full flex-wrap items-center justify-center gap-2 text-sm font-semibold text-rose-600 sm:gap-3 sm:text-base md:w-auto md:justify-end">
+            <Link
+              className="p-2 transition text-rose-700 hover:text-rose-800"
+              to="/restaurant"
+            >
               Browse restaurants
             </Link>
-            <a className="p-2 transition hover:text-white" href="#featured">
-              Featured picks
-            </a>
-            <a
-              className="rounded-2xl border border-white/15 p-2 transition hover:bg-white/10"
-              href="#download"
-            >
-              Mobile view
-            </a>
 
-            {/* ===== SHOW LOGIN/LOGOUT BUTTONS BASED ON USER STATUS ===== */}
-            {isAuthenticated ? (
-              // User is logged in - show user name and logout button
-              <>
-                <span className="rounded-2xl bg-white/10 p-2 text-white">
-                  Hi, {currentUser?.name}
-                </span>
-                <button
-                  className="rounded-2xl border border-white/15 bg-white px-3 py-2 text-slate-950"
-                  onClick={logout}
-                  type="button"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              // User is not logged in - show sign in and sign up links
-              <>
-                <Link
-                  className="rounded-2xl bg-white px-3 py-2 text-slate-950"
-                  to="/login"
-                >
-                  Sign in
-                </Link>
-                <Link
-                  className="rounded-2xl border border-white/20 px-3 py-2 text-white"
-                  to="/signup"
-                >
-                  Sign up
-                </Link>
-              </>
-            )}
+            <div className="ml-4 flex items-center gap-2">
+              {isAuthenticated ? (
+                <>
+                  <span className="rounded-full bg-rose-100 px-3 py-1 text-rose-700 text-sm">
+                    Hi, {currentUser?.name}
+                  </span>
+                  <button
+                    className="rounded-2xl bg-white px-3 py-2 text-rose-900 border border-rose-100"
+                    onClick={logout}
+                    type="button"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="px-3 py-2 text-rose-700 hover:bg-rose-50 rounded-md"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="rounded-2xl bg-linear-to-r from-orange-500 to-orange-400 px-3 py-2 text-white"
+                  >
+                    Signup
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-900 py-10 text-white sm:py-16">
-        <div className="absolute left-6 top-8 h-24 w-24 rounded-full bg-emerald-400/20 blur-2xl" />
-        <div className="absolute right-8 top-10 h-32 w-32 rounded-full bg-cyan-300/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-linear-to-br from-orange-50 via-orange-100 to-rose-50 py-10 text-rose-800 sm:py-16">
+        <div className="absolute left-6 top-8 h-24 w-24 rounded-full bg-orange-200/40 blur-2xl" />
+        <div className="absolute right-8 top-10 h-32 w-32 rounded-full bg-orange-100/30 blur-3xl" />
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mx-auto max-w-3xl text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h1 className="mx-auto max-w-3xl text-3xl font-semibold sm:text-4xl md:text-5xl">
             Order food, groceries, and dining deals near you.
           </h1>
           <form
@@ -127,7 +120,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Location (e.g. Delhi)"
-              className="w-full rounded-xl border border-white/10 bg-white/95 px-3 py-2 text-slate-900 sm:w-80 md:w-64"
+              className="w-full rounded-xl border border-white/10 bg-white/95 px-3 py-2 text-rose-900 sm:w-80 md:w-64"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               aria-label="Location"
@@ -135,13 +128,13 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search for restaurant, item or more"
-              className="w-full rounded-xl border border-white/10 bg-white/95 px-3 py-2 text-slate-900 sm:w-80 md:w-96"
+              className="w-full rounded-xl border border-white/10 bg-white/95 px-3 py-2 text-rose-900 sm:w-80 md:w-96"
               value={searchText}
               onChange={(event) => setSearchText(event.target.value)}
               aria-label="Search query"
             />
             <button
-              className="w-full rounded-xl bg-emerald-400 px-4 py-2 font-semibold text-slate-950 sm:w-auto"
+              className="w-full rounded-xl bg-linear-to-r from-orange-500 to-orange-400 px-4 py-2 font-semibold text-white shadow-md hover:opacity-95 sm:w-auto"
               type="submit"
             >
               Search
@@ -150,50 +143,7 @@ export default function Header() {
         </div>
       </section>
 
-      <div id="featured" className="bg-slate-950 px-4 pb-6">
-        <div className="container mx-auto grid gap-4 px-0 sm:grid-cols-3">
-          <Link
-            className="rounded-3xl border border-white/10 bg-white/5 p-5 text-left text-white transition hover:-translate-y-1 hover:bg-white/10"
-            to="/restaurant"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">
-              Quick delivery
-            </p>
-            <p className="mt-2 text-lg font-bold">Browse nearby restaurants</p>
-            <p className="mt-2 text-sm text-slate-300">
-              Explore popular places and open the full menu flow.
-            </p>
-          </Link>
-          <Link
-            className="rounded-3xl border border-white/10 bg-white/5 p-5 text-left text-white transition hover:-translate-y-1 hover:bg-white/10"
-            to="/"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Fresh essentials
-            </p>
-            <p className="mt-2 text-lg font-bold">
-              Use the same flow for groceries
-            </p>
-            <p className="mt-2 text-sm text-slate-300">
-              Keep food and grocery browsing under one clean interface.
-            </p>
-          </Link>
-          <a
-            className="rounded-3xl border border-white/10 bg-white/5 p-5 text-left text-white transition hover:-translate-y-1 hover:bg-white/10"
-            href="#download"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-200">
-              Mobile view
-            </p>
-            <p className="mt-2 text-lg font-bold">
-              Jump to the app-style section
-            </p>
-            <p className="mt-2 text-sm text-slate-300">
-              See the cleaner, brand-neutral call to action below.
-            </p>
-          </a>
-        </div>
-      </div>
+      {/* Featured picks section removed to simplify UI */}
     </>
   );
 }

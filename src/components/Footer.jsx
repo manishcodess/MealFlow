@@ -1,38 +1,103 @@
 // ===== FOOTER COMPONENT =====
-// Dark section highlighting the app experience
+// Multi-column footer styled to match the example
 
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="w-full bg-slate-950 px-4 py-8 text-slate-50">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 px-6 py-8 text-center shadow-2xl shadow-slate-950/30">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300">
-          App experience
-        </p>
-        <p className="mt-3 text-xl font-bold sm:text-2xl">
-          Save favorites, revisit recent orders, and move faster.
-        </p>
-        <p className="mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
-          This project is built as a standalone food ordering UI with browsing,
-          search, and authentication flows.
-        </p>
+    <footer className="w-full bg-white text-red-600-900 border-t border-rose-100">
+      <div className="container mx-auto max-w-7xl px-4 py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-6">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-orange-100 text-lg font-bold text-orange-600">
+                MF
+              </span>
+              <div>
+                <div className="text-lg font-bold">MealFlow</div>
+                <div className="mt-1 text-sm text-500">
+                  © 2025 MealFlow Limited
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <Link
-            className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
-            to="/restaurant"
-          >
-            Browse restaurants
-          </Link>
-          <a
-            className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            href="#download"
-          >
-            Jump to mobile view
-          </a>
+          <div>
+            <h4 className="mb-3 text-sm font-semibold">Company</h4>
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li>About Us</li>
+              <li>MealFlow Corporate</li>
+              <li>Careers</li>
+              <li>Team</li>
+              <li>MealFlow One</li>
+              <li>MealFlow Instamart</li>
+              <li>MealFlow Dineout</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-semibold">Contact us</h4>
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li>Help & Support</li>
+              <li>Partner With Us</li>
+              <li>Ride With Us</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-semibold">Available in:</h4>
+            <ul className="space-y-2 text-sm text-grey-500">
+              <li>Bangalore</li>
+              <li>Gurgaon</li>
+              <li>Hyderabad</li>
+              <li>Delhi</li>
+              <li>Mumbai</li>
+              <li>Pune</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-semibold">Life at MealFlow</h4>
+            <ul className="space-y-2 text-sm text-grey-500">
+              <li>Explore With MealFlow</li>
+              <li>MealFlow News</li>
+              <li>Snackables</li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-8 flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="text-center md:text-left">
+            <p className="text-sm font-medium text-rose-600">
+              For better experience, download the MealFlow app now
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="https://apps.apple.com/in/app/swiggy-food-order-delivery/id989540920"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+                className="h-10 w-auto"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=in.swiggy.android"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Get it on Google Play"
+                className="h-10 w-auto"
+              />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

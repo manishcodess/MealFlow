@@ -7,13 +7,19 @@
 /* These are color codes used throughout the app */
 :root {
   /* Accent color for buttons, headers, and highlights */
-  --accent: #0f766e;
+  /* Orange-red accent used across the app */
+  /* Orange-red palette (professional, soft) */
+  --accent: #ff6b3d; /* primary warm orange */
+  --accent-600: #ff5a2d; /* hover/active */
+  --accent-300: #ffd6c7; /* light accent */
+  --accent-100: #fff4f0; /* subtle surfaces */
 
-  /* Darker accent for hover effects */
-  --accent-dark: #115e59;
+  /* Surfaces and muted tones */
+  --surface: #fffaf8;
+  --muted: #fff4f2;
 
-  /* Light gray for backgrounds, borders, muted text */
-  --muted: #f5f7fb;
+  /* Text */
+  --text: #1f2937;
 }
 
 /* ===== BODY STYLING (Applies to entire page) ===== */
@@ -29,8 +35,9 @@ body {
     "Helvetica Neue",
     Arial;
 
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-  color: #0f172a;
+  /* Warm light orange background gradient */
+  background: linear-gradient(180deg, #fff7f5 0%, #fff0eb 100%);
+  color: #1f2937;
   min-height: 100vh;
 }
 
