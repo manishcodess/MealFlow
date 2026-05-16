@@ -14,23 +14,23 @@ A React food delivery interface with authentication, restaurant discovery, filte
 
 ###  Home Page
 Landing page with hero search, food categories, grocery items, and featured restaurants.
-![First](./src/assests/1.png)
+![First](./src/assets/1.png)
 
-![Second](./src/assests/2.png)
+![Second](./src/assets/2.png)
 
-![Third](./src/assests/3.png)
+![Third](./src/assets/3.png)
 
-![Fourth](./src/assests/login.png)
+![Fourth](./src/assets/login.png)
 
 ###  Login and Signup Page
 User authentication with email/password login and account creation.
-![login](./src/assests/login.png)
-![sigup](./src/assests/signup.png)
+![login](./src/assets/login.png)
+![sigup](./src/assets/signup.png)
 
 
 ### 2 Restaurant Listing
 Browse all restaurants with advanced search, filtering, and sorting capabilities.
-![restaurants](./src/assests/restaurants.png)
+![restaurants](./src/assets/restaurants.png)
 ---
 ## ✨ Features
 
@@ -85,7 +85,7 @@ mealflow/
 │   └── redux/                    # Store & slices
 ├── srcmore/                      # Restaurant listing features
 ├── srcpizza/                     # Menu display features
-└── src/assests/                  # Screenshots (1.png, 2.png, 3.png, 4.png)
+└── src/assets/                   # Screenshots (1.png, 2.png, 3.png, 4.png)
 ```
 
 ---
