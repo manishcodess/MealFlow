@@ -2,80 +2,58 @@
 // Shows the top navigation bar with brand, search, and login/logout buttons
 // Also contains the hero section with the main search form
 
-import { Link } from "react-router-dom"; // Navigate within app (no page reload)
-import { useAuth } from "../context/AuthContext"; // Get login info
-import { useNavigate } from "react-router-dom"; // Redirect to other pages
-import { useState } from "react"; // Manage form input state
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-// ===== HEADER COMPONENT FUNCTION =====
 export default function Header() {
-  // ===== GET USER LOGIN INFO =====
-  // currentUser = { name, email } or null
-  // isAuthenticated = true/false
-  // logout = function to logout
   const { currentUser, isAuthenticated, logout } = useAuth();
-
-  // ===== NAVIGATION HOOK =====
-  // Used to redirect user to /restaurant page when they search
   const navigate = useNavigate();
-
-  // ===== STATE: Search Input =====
-  // Stores what user types in search box
   const [searchText, setSearchText] = useState("");
-
-  // ===== STATE: Location Input =====
-  // Stores selected location (default: Delhi)
   const [location, setLocation] = useState("Delhi");
 
-  // ===== HANDLE SEARCH FORM SUBMIT =====
-  // Called when user clicks Search button or presses Enter
   const handleSearch = (event) => {
-    event.preventDefault(); // Prevent page reload
-
-    // Get search text and remove extra spaces
+    event.preventDefault();
     const query = searchText.trim();
-
-    // If user typed something, search for it
     if (query) {
-      // Navigate to /restaurant?q=pizza (or whatever they searched)
       navigate(`/restaurant?q=${encodeURIComponent(query)}`);
       return;
     }
-
-    // If empty search, just go to restaurant list
     navigate("/restaurant");
   };
 
   return (
     <>
-      {/* ===== TOP NAVBAR ===== */}
-      <header className="bg-white py-3 text-rose-900 sm:py-4 shadow-sm">
-        <div className="container mx-auto flex flex-col gap-3 px-4 md:flex-row md:items-center md:justify-between">
-          <Link className="flex items-center gap-3 py-2" to="/">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-100 text-lg font-black text-rose-700">
+      {/* ===== TOP NAVBAR (Sticky & Glassmorphic) ===== */}
+      <header className="sticky top-0 z-50 glass border-b border-white/20">
+        <div className="container mx-auto flex flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between transition-smooth">
+          <Link className="flex items-center gap-3 group" to="/">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 text-xl font-black text-white shadow-lg shadow-orange-500/30 group-hover:scale-105 transition-smooth">
               MF
             </span>
-            <span className="text-lg font-bold tracking-wide sm:text-xl">
+            <span className="text-xl font-display font-bold tracking-tight text-gray-900">
               MealFlow
             </span>
           </Link>
+          
           {/* ===== NAVBAR LINKS =====  */}
-          <div className="flex w-full flex-wrap items-center justify-center gap-2 text-sm font-semibold text-rose-600 sm:gap-3 sm:text-base md:w-auto md:justify-end">
+          <div className="flex w-full flex-wrap items-center justify-center gap-2 text-sm font-medium text-gray-600 sm:text-base md:w-auto md:justify-end">
             <Link
-              className="p-2 transition text-rose-700 hover:text-rose-800"
+              className="px-4 py-2 rounded-full transition-smooth hover:bg-orange-50 hover:text-orange-600"
               to="/restaurant"
             >
-              Browse restaurants
+              Browse
             </Link>
 
-            <div className="ml-4 flex items-center gap-2">
+            <div className="ml-2 flex items-center gap-3">
               {isAuthenticated ? (
                 <>
-                  <span className="rounded-full bg-rose-100 px-3 py-1 text-rose-700 text-sm">
+                  <span className="rounded-full bg-orange-100/50 px-4 py-2 text-orange-800 text-sm font-medium border border-orange-200/50">
                     Hi, {currentUser?.name}
                   </span>
                   <button
-                    className="rounded-2xl bg-white px-3 py-2 text-rose-900 border border-rose-100"
+                    className="rounded-full bg-white px-5 py-2 text-gray-700 shadow-sm border border-gray-200 hover:bg-gray-50 hover:shadow transition-smooth"
                     onClick={logout}
                     type="button"
                   >
@@ -86,15 +64,15 @@ export default function Header() {
                 <>
                   <Link
                     to="/login"
-                    className="px-3 py-2 text-rose-700 hover:bg-rose-50 rounded-md"
+                    className="px-5 py-2 text-gray-700 hover:bg-gray-100 rounded-full transition-smooth font-medium"
                   >
-                    Login
+                    Log in
                   </Link>
                   <Link
                     to="/signup"
-                    className="rounded-2xl bg-linear-to-r from-orange-500 to-orange-400 px-3 py-2 text-white"
+                    className="rounded-full bg-gray-900 px-6 py-2 text-white font-medium shadow-md hover:bg-gray-800 hover:shadow-lg transition-smooth hover:-translate-y-0.5"
                   >
-                    Signup
+                    Sign up
                   </Link>
                 </>
               )}
@@ -103,47 +81,64 @@ export default function Header() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-linear-to-br from-orange-50 via-orange-100 to-rose-50 py-10 text-rose-800 sm:py-16">
-        <div className="absolute left-6 top-8 h-24 w-24 rounded-full bg-orange-200/40 blur-2xl" />
-        <div className="absolute right-8 top-10 h-32 w-32 rounded-full bg-orange-100/30 blur-3xl" />
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mx-auto max-w-3xl text-3xl font-semibold sm:text-4xl md:text-5xl">
-            Order food, groceries, and dining deals near you.
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative overflow-hidden hero-gradient py-20 sm:py-28 text-center flex flex-col items-center justify-center border-b border-gray-100">
+        {/* Decorative background blobs */}
+        <div className="absolute left-[10%] top-[20%] h-64 w-64 rounded-full bg-orange-400/20 blur-[80px]" />
+        <div className="absolute right-[10%] bottom-[10%] h-72 w-72 rounded-full bg-rose-400/20 blur-[80px]" />
+        
+        <div className="container relative z-10 mx-auto px-4">
+          <h1 className="mx-auto max-w-4xl text-4xl font-display font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl/tight">
+            Craving something <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rose-500">delicious?</span>
           </h1>
+          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+            Order food, groceries, and dining deals from the best spots near you, delivered fast.
+          </p>
+          
+          {/* SEARCH FORM */}
           <form
             id="search2"
-            className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:items-center md:flex-row"
+            className="mt-10 mx-auto max-w-3xl glass p-3 rounded-3xl flex flex-col gap-3 sm:flex-row shadow-xl shadow-orange-900/5"
             onSubmit={handleSearch}
             role="search"
-            aria-label="Find restaurants and items"
           >
-            <input
-              type="text"
-              placeholder="Location (e.g. Delhi)"
-              className="w-full rounded-xl border border-white/10 bg-white/95 px-3 py-2 text-rose-900 sm:w-80 md:w-64"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              aria-label="Location"
-            />
-            <input
-              type="text"
-              placeholder="Search for restaurant, item or more"
-              className="w-full rounded-xl border border-white/10 bg-white/95 px-3 py-2 text-rose-900 sm:w-80 md:w-96"
-              value={searchText}
-              onChange={(event) => setSearchText(event.target.value)}
-              aria-label="Search query"
-            />
+            <div className="relative flex-1">
+              <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Delhi"
+                className="w-full h-14 bg-white/80 pl-12 pr-4 rounded-2xl border-none focus:ring-2 focus:ring-orange-500/50 outline-none transition-smooth text-gray-800 font-medium placeholder:text-gray-400"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                aria-label="Location"
+              />
+            </div>
+            
+            <div className="relative flex-[2]">
+              <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Search for restaurants, cuisines, or dishes..."
+                className="w-full h-14 bg-white/80 pl-12 pr-4 rounded-2xl border-none focus:ring-2 focus:ring-orange-500/50 outline-none transition-smooth text-gray-800 font-medium placeholder:text-gray-400"
+                value={searchText}
+                onChange={(event) => setSearchText(event.target.value)}
+                aria-label="Search query"
+              />
+            </div>
+            
             <button
-              className="w-full rounded-xl bg-linear-to-r from-orange-500 to-orange-400 px-4 py-2 font-semibold text-white shadow-md hover:opacity-95 sm:w-auto"
+              className="h-14 px-8 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold shadow-md hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-smooth w-full sm:w-auto flex-shrink-0"
               type="submit"
             >
-              Search
+              Find Food
             </button>
           </form>
         </div>
       </section>
-
-      {/* Featured picks section removed to simplify UI */}
     </>
   );
 }
