@@ -14,39 +14,52 @@ export default function Footer() {
                 MF
               </span>
               <div>
-                <div className="text-lg font-bold">MealFlow</div>
-                <div className="mt-1 text-sm text-500">
-                  © 2025 MealFlow Limited
+                <div className="text-lg font-bold">DineSwift</div>
+                <div className="text-gray-400 text-sm mt-2">
+                  © 2025 DineSwift Limited
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Column 2 */}
           <div>
             <h4 className="mb-3 text-sm font-semibold">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-500">
-              <li>About Us</li>
-              <li>MealFlow Corporate</li>
+            <ul className="text-gray-400 text-sm space-y-2">
+              <li>About</li>
               <li>Careers</li>
               <li>Team</li>
-              <li>MealFlow One</li>
-              <li>MealFlow Instamart</li>
-              <li>MealFlow Dineout</li>
+              <li>DineSwift Corporate</li>
+              <li>DineSwift One</li>
+              <li>DineSwift Instamart</li>
+              <li>DineSwift Dineout</li>
             </ul>
           </div>
 
+          {/* Column 3 */}
           <div>
             <h4 className="mb-3 text-sm font-semibold">Contact us</h4>
-            <ul className="space-y-2 text-sm text-gray-500">
+            <ul className="text-gray-400 text-sm space-y-2">
               <li>Help & Support</li>
-              <li>Partner With Us</li>
-              <li>Ride With Us</li>
+              <li>Partner with us</li>
+              <li>Ride with us</li>
             </ul>
+            
+            <div className="mt-8">
+              <h4 className="mb-3 text-sm font-semibold">Legal</h4>
+              <ul className="text-gray-400 text-sm space-y-2">
+                <li>Terms & Conditions</li>
+                <li>Cookie Policy</li>
+                <li>Privacy Policy</li>
+                <li>Investor Relations</li>
+              </ul>
+            </div>
           </div>
 
+          {/* Column 4 */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold">Available in:</h4>
-            <ul className="space-y-2 text-sm text-grey-500">
+            <h4 className="mb-3 text-sm font-semibold">We deliver to:</h4>
+            <ul className="text-gray-400 text-sm space-y-2">
               <li>Bangalore</li>
               <li>Gurgaon</li>
               <li>Hyderabad</li>
@@ -56,25 +69,27 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Column 5 */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold">Life at MealFlow</h4>
-            <ul className="space-y-2 text-sm text-grey-500">
-              <li>Explore With MealFlow</li>
-              <li>MealFlow News</li>
+            <h4 className="mb-3 text-sm font-semibold">Life at DineSwift</h4>
+            <ul className="text-gray-400 text-sm space-y-2">
+              <li>Explore With DineSwift</li>
+              <li>DineSwift News</li>
               <li>Snackables</li>
             </ul>
+            
+            <div className="mt-8 border border-gray-700 rounded-lg p-3 w-max">
+              <p className="text-xs text-gray-400 font-semibold">
+              For better experience, download the DineSwift app now
+              </p>
+            </div>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="text-center md:text-left">
-            <p className="text-sm font-medium text-rose-600">
-              For better experience, download the MealFlow app now
-            </p>
-          </div>
 
+        <div className="mt-8 flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-3">
             <a
-              href="https://apps.apple.com/in/app/swiggy-food-order-delivery/id989540920"
+              href="https://apps.apple.com/in/app/dineswift-food-order-delivery/id989540920"
               target="_blank"
               rel="noreferrer"
             >
@@ -85,7 +100,7 @@ export default function Footer() {
               />
             </a>
             <a
-              href="https://play.google.com/store/apps/details?id=in.swiggy.android"
+              href="https://play.google.com/store/apps/details?id=in.dineswift.android"
               target="_blank"
               rel="noreferrer"
             >

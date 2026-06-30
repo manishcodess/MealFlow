@@ -37,7 +37,7 @@ export default function Login() {
     e.preventDefault();
     setError("");
 
-    const users = JSON.parse(localStorage.getItem("swiggyUsers") || "[]");
+    const users = JSON.parse(localStorage.getItem("dineswiftUsers") || "[]");
     const match = users.find(
       (user) => user.email === form.email && user.password === form.password,
     );

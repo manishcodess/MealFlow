@@ -46,7 +46,7 @@ export default function Signup() {
     }
 
     // ===== GET ALL REGISTERED USERS FROM STORAGE =====
-    const users = JSON.parse(localStorage.getItem("swiggyUsers") || "[]");
+    const users = JSON.parse(localStorage.getItem("dineswiftUsers") || "[]");
 
     // ===== CHECK IF EMAIL ALREADY EXISTS =====
     const alreadyExists = users.some((user) => user.email === form.email);
@@ -65,7 +65,7 @@ export default function Signup() {
 
     // ===== SAVE NEW USER TO STORAGE =====
     // Add new user to existing users list
-    localStorage.setItem("swiggyUsers", JSON.stringify([...users, newUser]));
+    localStorage.setItem("dineswiftUsers", JSON.stringify([...users, newUser]));
 
     // ===== LOGIN THE NEW USER =====
     // Automatically log them in after signup

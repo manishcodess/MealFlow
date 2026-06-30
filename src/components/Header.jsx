@@ -28,13 +28,16 @@ export default function Header() {
       {/* ===== TOP NAVBAR (Sticky & Glassmorphic) ===== */}
       <header className="sticky top-0 z-50 glass border-b border-white/20">
         <div className="container mx-auto flex flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between transition-smooth">
-          <Link className="flex items-center gap-3 group" to="/">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 text-xl font-black text-white shadow-lg shadow-orange-500/30 group-hover:scale-105 transition-smooth">
-              MF
-            </span>
-            <span className="text-xl font-display font-bold tracking-tight text-gray-900">
-              MealFlow
-            </span>
+          <Link to="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 text-white shadow-lg shadow-orange-500/30 ring-2 ring-white overflow-hidden relative">
+              <span className="text-xl sm:text-2xl font-bold italic tracking-tighter">DS</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full hover:translate-y-0 transition-transform duration-300"></div>
+            </div>
+            <div className="hidden sm:block">
+              <span className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-400 tracking-tight">
+                DineSwift
+              </span>
+            </div>
           </Link>
           
           {/* ===== NAVBAR LINKS =====  */}

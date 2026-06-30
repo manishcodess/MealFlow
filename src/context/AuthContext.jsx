@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
   // When app loads, check if user was previously logged in (stored in localStorage)
   useEffect(() => {
     // Try to get saved user from browser storage
-    const storedUser = localStorage.getItem("mealflowCurrentUser");
+    const storedUser = localStorage.getItem("dineswiftCurrentUser");
 
     // If no saved user, do nothing
     if (!storedUser) return;
@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
       setCurrentUser(JSON.parse(storedUser));
     } catch {
       // If saved data is corrupted, delete it
-      localStorage.removeItem("mealflowCurrentUser");
+      localStorage.removeItem("dineswiftCurrentUser");
     }
   }, []); // Empty array = run only once when app starts
 
@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
   // Call this when user submits login/signup form
   const login = (user) => {
     // Save user to browser storage (so they stay logged in even after refresh)
-    localStorage.setItem("mealflowCurrentUser", JSON.stringify(user));
+    localStorage.setItem("dineswiftCurrentUser", JSON.stringify(user));
 
     // Update the current user state (triggers re-render of all pages)
     setCurrentUser(user);
@@ -49,7 +49,7 @@ export function AuthProvider({ children }) {
   // Call this when user clicks "Logout" button
   const logout = () => {
     // Delete saved user from browser storage
-    localStorage.removeItem("mealflowCurrentUser");
+    localStorage.removeItem("dineswiftCurrentUser");
 
     // Clear the current user (sets to null)
     setCurrentUser(null);

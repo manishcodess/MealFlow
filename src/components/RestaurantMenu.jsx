@@ -35,7 +35,7 @@ export default function RestaurantMenu() {
       // If found, use its info. Otherwise fallback to the mock Pizzadata info
       const info = matchingRestaurant?.info || Pizzadata?.data?.cards?.[2]?.card?.card?.info || null;
       
-      // Since live Swiggy API blocks requests with WAF, we use the mock Pizza items for the menu
+      // Since live API blocks requests with WAF, we use the mock Pizza items for the menu
       const allCards =
         Pizzadata?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR
           ?.cards || [];
