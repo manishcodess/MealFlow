@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MenuCard from "./MenuCard";
-import { Pizzadata } from "../Utilitiespizza/Pizzadata";
+import { Pizzadata } from "../utilities/Pizzadata";
 
 function sectionIdFromTitle(title) {
   return String(title || "section")

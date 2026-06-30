@@ -16,7 +16,7 @@ export default function Groceryoptions() {
 
       {/* ===== GROCERY ITEMS LIST ===== */}
       {/* Horizontal scroll with grocery items */}
-      <div className="flex gap-3 overflow-x-auto p-1 sm:gap-4">
+      <div className="flex gap-2 overflow-x-auto p-1 sm:gap-3">
         {/* ===== LOOP THROUGH ALL GROCERY ITEMS ===== */}
         {/* GroceryData = array of grocery items from utilities/Grocerydata.js */}
         {GroceryData.map((val) => {

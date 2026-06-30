@@ -22,7 +22,7 @@ export default function Foodoptions() {
 
         {/* ===== FOOD ITEMS LIST ===== */}
         {/* Horizontal scroll container with hidden scrollbar for a clean look */}
-        <div className="flex overflow-x-auto gap-4 sm:gap-6 pb-4 scroll-smooth snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
+        <div className="flex overflow-x-auto gap-3 sm:gap-4 pb-4 scroll-smooth snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
           {Fooddata.map((val) => {
             return (
               <div className="snap-start shrink-0" key={val.id}>

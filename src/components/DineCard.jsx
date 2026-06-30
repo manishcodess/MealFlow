@@ -5,14 +5,14 @@ export default function DineCard({ RestData }) {
   // RestData = restaurant object with name, image, rating, offer, etc.
 
   return (
-    <div className="max-w-sm min-w-[260px] flex-none sm:min-w-[300px]">
+    <div className="max-w-xs min-w-[220px] flex-none sm:min-w-[260px]">
       {/* ===== CLICKABLE LINK TO RESTAURANT WEBSITE ===== */}
       <a target="_blank" href={RestData.cta.link}>
         {/* ===== RESTAURANT IMAGE CONTAINER ===== */}
         <div className="relative">
           {/* ===== RESTAURANT IMAGE ===== */}
           <img
-            className="h-52 w-full rounded-2xl object-cover sm:h-56"
+            className="h-40 w-full rounded-2xl object-cover sm:h-48"
             src={
               "https://media-assets.swiggy.com/swiggy/image/upload/" +
               RestData?.info?.mediaFiles[0]?.url // Image URL

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import RestCard from "./RestCard";
-import { Restaurantdatamore } from "../utilitiesmore/Restaurantdatamore";
+import { Restaurantdatamore } from "../utilities/Restaurantdatamore";
 
 function parseCostForTwo(costText) {
   const parsed = Number(String(costText || "").replace(/[^\d]/g, ""));
@@ -231,7 +231,7 @@ export default function Restaurantscards() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 gap-y-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
             {filteredRestaurants.map((item) => (
               <div key={item?.info?.id} className="w-full">
                 <RestCard restprop={item} />

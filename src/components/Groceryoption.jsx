@@ -7,9 +7,9 @@ export default function Groceryoption({ GroceryData }) {
   // GroceryData = entire object with imageId and label
 
   return (
-    <div className="min-w-[110px] rounded-4xl sm:min-w-[130px]">
+    <div className="min-w-[90px] rounded-3xl sm:min-w-[110px]">
       {/* ===== IMAGE CONTAINER ===== */}
-      <div className="m-3 h-28 w-24 rounded-4xl bg-amber-100 sm:m-5 sm:h-35 sm:w-30">
+      <div className="m-2 h-20 w-20 rounded-3xl bg-amber-100 sm:m-3 sm:h-24 sm:w-24">
         {/* ===== GROCERY IMAGE ===== */}
         <img
           className="h-full w-full object-contain"

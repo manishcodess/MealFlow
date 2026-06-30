@@ -5,9 +5,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client"; // Loads React into the browser's HTML
 
-// ===== IMPORT PAGES/SCREENS =====
-import Restaurantscards from "../srcmore/componentsmore/Restaurantscards"; // Restaurant list page
-import RestaurantMenu from "../srcpizza/Componentspizza/RestaurantMenu"; // Menu of a specific restaurant
+import Restaurantscards from "./components/Restaurantscards"; // Restaurant list page
+import RestaurantMenu from "./components/RestaurantMenu"; // Menu of a specific restaurant
 
 import Home from "./components/Home"; // Home page with search, food options, etc.
 import Login from "./components/Login"; // Login page
