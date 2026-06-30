@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MenuCard from "./MenuCard";
 import { Pizzadata } from "../utilities/Pizzadata";
+import { Restaurantdatamore } from "../utilities/Restaurantdatamore";
 
 function sectionIdFromTitle(title) {
   return String(title || "section")
@@ -26,7 +27,15 @@ export default function RestaurantMenu() {
       setIsLoading(true);
       setError("");
 
-      const info = Pizzadata?.data?.cards?.[2]?.card?.card?.info || null;
+      // Try to find the actual restaurant info from our mock listing data based on URL ID
+      const matchingRestaurant = Restaurantdatamore.find(
+        (rest) => rest?.info?.id === id
+      );
+
+      // If found, use its info. Otherwise fallback to the mock Pizzadata info
+      const info = matchingRestaurant?.info || Pizzadata?.data?.cards?.[2]?.card?.card?.info || null;
+      
+      // Since live Swiggy API blocks requests with WAF, we use the mock Pizza items for the menu
       const allCards =
         Pizzadata?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR
           ?.cards || [];
@@ -111,7 +120,7 @@ export default function RestaurantMenu() {
         <p className="text-sm text-gray-500 mt-1">
           Rating {restaurantInfo?.avgRating || "-"} •{" "}
           {restaurantInfo?.sla?.slaString || ""} •{" "}
-          {restaurantInfo?.costForTwoMessage || ""}
+          {restaurantInfo?.costForTwoMessage || restaurantInfo?.costForTwo || ""}
         </p>
       </div>
 
